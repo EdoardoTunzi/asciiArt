@@ -19,7 +19,7 @@ plt.imshow(reduced)
 
 chars = ["@", "#", "$", "_", "|", "-"]
 
-pixel_tuple = reduced.getdata()[0]
+pixel_tuple = reduced.get_flattened_data()[0]
 # print(pixel_tuple[0])
 
 num_intervals = int(256 / len(chars))
@@ -28,7 +28,7 @@ div = pixel_tuple[0] / num_intervals
 
 ascii_string = ""
 
-for px in reduced.getdata():
+for px in reduced.get_flattened_data():
     ascii_string += chars[int(px[0] / num_intervals)]
 
 for i in range(0, len(ascii_string), reduced.width):
